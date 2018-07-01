@@ -1,0 +1,639 @@
+﻿NASA Database Management Systems
+Group ID :- 5.7
+
+GROUP MEMBERS:
+201501408: Raj Jakasaniya
+201501452: Dhruv Patel 
+201501416: Hasnain Gandhi
+201501177: Naitik Dodia
+
+
+NASA DATA ENTRY SCRIPTS FOR ALL TABLES
+
+
+Mission:
+
+insert into Mission (m_id, status, budget, start_date, end_date) values ('Orbital-ATK-CRS-8', 'Success', 61, '2006-08-14', '2007-04-17');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('JPSS-1', 'Success', 76, '1991-10-13', '1993-10-21');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('SPACEX-CRS-13', 'Crashed', 44, '2000-01-13', '2000-11-18');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('Hubble', 'Success', 57, '1998-06-18', '1999-01-13');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('Expedition-5', 'Crashed', 38, '1991-11-03', '1991-11-04');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('GRACE-FO', 'Success', 50, '1998-09-27', '1999-04-05');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('Insight-MARS', 'Crashed', 51,'2002-09-19', '2003-06-04');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('MOM', 'Success', 41, '1991-07-03', '1992-01-13');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('TESS', 'Ongoing', 82, '2014-12-23','2015-09-12');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('Parker-Solar-probe', 'Crashed', 30,'2012-03-01','2012-04-18');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('SM1', 'Success', 83,'2001-06-11','2002-06-12');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('Curiosity-Mars-Rover', 'Success', 200,'1998-03-20','1999-03-13');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('New-Horizons', 'Ongoing', 38,'2007-07-11', '2010-12-04');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('Voyager', 'Crashed', 76, '2015-03-08', '2015-03-22');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('Cassini', 'Ongoing', 26, '2003-01-20', '2013-03-06');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('Huygens', 'Ongoing', 1, '2000-06-28', '2010-10-19');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('Chandra-X-RAY', 'Success', 176, '2001-01-22', '2009-07-12');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('Apollo', 'Success', 20, '1990-09-05', '1994-10-18');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('Explorer', 'Ongoing', 128, '2015-09-25', '2017-10-29');
+insert into Mission (m_id, status, budget, start_date, end_date) values ('Galileo', 'Crashed', 18, '2017-07-21', '2017-07-22');
+
+Telescope:
+
+insert into Telescope (t_name, type, range, price) values ('VLA', 'Radio', 8232, 703);
+insert into Telescope (t_name, type, range, price) values ('Hubble', 'Visual', 57429, 966);
+insert into Telescope (t_name, type, range, price) values ('VISTA', 'Infrared', 44272, 442);
+insert into Telescope (t_name, type, range, price) values ('Uhuru', 'X-Ray', 79813, 956);
+insert into Telescope (t_name, type, range, price) values ('SAS-2', 'Gamma-Ray', 41194, 217);
+insert into Telescope (t_name, type, range, price) values ('Arecebo', 'Radio', 64329, 947);
+insert into Telescope (t_name, type, range, price) values ('HEAO-3', 'Gamma-Ray', 98095, 189);
+insert into Telescope (t_name, type, range, price) values ('SGRBE','Visual', 90352, 601);
+insert into Telescope (t_name, type, range, price) values ('UKIRT','Infrared', 47059, 205);
+insert into Telescope (t_name, type, range, price) values ('Ariel-V', 'X-Ray', 13617, 331);
+insert into Telescope (t_name, type, range, price) values ('CGRO', 'Gamma-Ray', 87431, 814);
+insert into Telescope (t_name, type, range, price) values ('GBT','Radio', 73947, 357);
+insert into Telescope (t_name, type, range, price) values ('SAS-C', 'X-Ray', 94068, 449);
+insert into Telescope (t_name, type, range, price) values ('Kepler','Visual', 35989, 484);
+insert into Telescope (t_name, type, range, price) values ('ATA','Radio', 56263, 555);
+insert into Telescope (t_name, type, range, price) values ('IRTF','Infrared', 69852, 639);
+insert into Telescope (t_name, type, range, price) values ('HETE-2', 'Gamma-Ray', 24372, 514);
+insert into Telescope (t_name, type, range, price) values ('Evangelin','Infrared', 99205, 106);
+insert into Telescope (t_name, type, range, price) values ('CHIME', 'Radio', 76838, 724);
+insert into Telescope (t_name, type, range, price) values ('HEAO-1', 'X-Ray', 7417, 457);
+
+
+
+
+
+mission_Uses:
+
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('TESS', 'VISTA');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Hubble', 'UKIRT');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Hubble', 'IRTF');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Huygens', 'ATA');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Insight-MARS', 'Evangelin');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Apollo', 'Kepler');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Chandra-X-RAY', 'UKIRT');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Explorer', 'Ariel-V');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Orbital-ATK-CRS-8', 'HEAO-3');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Orbital-ATK-CRS-8', 'UKIRT');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('JPSS-1', 'IRTF');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Curiosity-Mars-Rover', 'Kepler');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Chandra-X-RAY', 'VLA');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Curiosity-Mars-Rover', 'IRTF');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('MOM', 'UKIRT');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Orbital-ATK-CRS-8', 'HETE-2');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Parker-Solar-probe', 'ATA');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Insight-MARS', 'IRTF');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Voyager', 'Hubble');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Insight-MARS', 'SAS-2');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('New-Horizons', 'SAS-C');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('MOM', 'VISTA');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Cassini', 'IRTF');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Orbital-ATK-CRS-8', 'VISTA');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Curiosity-Mars-Rover', 'HEAO-3');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Hubble', 'CHIME');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Cassini', 'CHIME');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('MOM', 'Kepler');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('JPSS-1', 'CGRO');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('SM1', 'ATA');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Voyager', 'CGRO');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('New-Horizons', 'SAS-2');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Parker-Solar-probe', 'Evangelin');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Parker-Solar-probe', 'CHIME');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Orbital-ATK-CRS-8', 'Ariel-V');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('TESS', 'Arecebo');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Cassini', 'VLA');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('TESS', 'UKIRT');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('SM1', 'Kepler');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('SM1', 'SGRBE');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Huygens', 'SAS-2');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('TESS', 'Kepler');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('MOM', 'Hubble');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('MOM', 'HEAO-3');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Huygens', 'Arecebo');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('GRACE-FO', 'ATA');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('TESS', 'ATA');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('TESS', 'Hubble');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('TESS', 'IRTF');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('MOM', 'Arecebo');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('MOM', 'ATA');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('MOM', 'IRTF');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Hubble', 'VISTA');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Hubble', 'Arecebo');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Hubble', 'Kepler');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Hubble', 'ATA');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Hubble', 'Hubble');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Huygens', 'UKIRT');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Huygens', 'Hubble');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Huygens', 'IRTF');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Huygens', 'VISTA');
+INSERT INTO mission_Uses (m_id, t_name) VALUES ('Huygens', 'Kepler');
+
+
+
+
+
+
+Galaxy:
+
+insert into Galaxy (g_name, distance, m_id, t_name) values ('Magellanic', 8832, 'MOM', 'UKIRT');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('NGC-292', 2026, 'MOM', 'VISTA');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('Andromeda', 5261, 'MOM', 'Kepler');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('Triangulum', 6058, 'MOM', 'Hubble');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('Centaurus', 1100, 'TESS', 'VISTA');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('Bode', 8722, 'Hubble', 'IRTF');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('Messier', 587, 'Huygens', 'ATA');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('NGC-1068', 6331, 'Insight-MARS', 'Evangelin');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('Cygnus', 5400, 'Apollo', 'Kepler');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('Cigar', 6491, 'Chandra-X-RAY', 'UKIRT');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('Malin', 6154, 'Explorer', 'Ariel-V');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('Gn-z11', 6170, 'Orbital-ATK-CRS-8', 'HEAO-3');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('Circinus', 7995, 'Cassini', 'CHIME');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('Sagittarius', 3810, 'JPSS-1', 'CGRO');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('Virgo', 9208,'GRACE-FO', 'ATA');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('MilkyWay', 20, 'Huygens', 'SAS-2');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('NGC-4860', 608, 'SM1', 'SGRBE');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('NGC-584', 4223, 'Insight-MARS', 'IRTF');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('M-104', 8878, 'Voyager', 'CGRO');
+insert into Galaxy (g_name, distance, m_id, t_name) values ('M-81', 3837, 'TESS', 'Arecebo');
+
+
+
+
+Star:
+
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('lauryn', 'VISTA', 'Huygens', 67157, 43, 9177, 9378, 8326, 7, 'NGC-1068');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('janelle', 'UKIRT', 'Huygens', 61594, 48, 2450, 5715, 2571, 90, 'Messier');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('aileen', 'VISTA', 'Hubble', 11627, 40, 380, 9132, 2087, 96, 'NGC-1068');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('agustin', 'ATA', 'Huygens', 63222, 36, 2093, 7877, 565, 3, 'Bode');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('virginia', 'ATA', 'Hubble', 76093, 41, 2650, 8792, 3883, 48, 'Messier');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('angie', 'Hubble', 'MOM', 17713, 29, 1050, 4654, 2060, 34, 'NGC-292');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('bria', 'ATA', 'Huygens', 85519, 33, 5282, 2145, 4443, 96, 'NGC-1068');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('myra', 'Arecebo', 'Hubble', 31622, 36, 1998, 4189, 8681, 96, 'Bode');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('angel', 'Arecebo', 'Huygens', 78800, 40, 8984, 6901, 7493, 91, 'NGC-1068');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('antoine', 'Arecebo', 'Hubble', 30761, 40, 8673, 8290, 3980, 97, 'Centaurus');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('roman', 'IRTF', 'MOM', 18780, 41, 3664, 3648, 6234, 7, 'Bode');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('addilyn', 'UKIRT', 'MOM', 67883, 38, 6997, 8180, 333, 33, 'Centaurus');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('jaylin', 'IRTF', 'Huygens', 64500, 35, 2360, 3529, 5243, 39, 'Andromeda');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('sloan', 'Hubble', 'MOM', 70080, 38, 6668, 236, 8225, 11, 'Andromeda');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('leona', 'Arecebo', 'TESS', 30758, 33, 9734, 7445, 2624, 70, 'Triangulum');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('christine', 'VISTA', 'TESS', 43103, 35, 5970, 4431, 9011, 37, 'Centaurus');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('milagros', 'UKIRT', 'TESS', 21640, 43, 6334, 8586, 4739, 51, 'Centaurus');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('bentley', 'Hubble', 'MOM', 5849, 38, 6489, 757, 4890, 96, 'Centaurus');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('ann', 'Hubble', 'MOM', 70845, 43, 3766, 586, 8126, 18, 'Bode');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('kyra', 'Arecebo', 'TESS', 43573, 42, 983, 4185, 1086, 62, 'NGC-1068');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('amiyah', 'Hubble', 'Huygens', 48462, 33, 714, 9727, 5576, 41, 'Messier');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('quinton', 'VISTA', 'TESS', 16478, 38, 1631, 8161, 9092, 24, 'NGC-292');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('karina', 'UKIRT', 'MOM', 44920, 34, 6484, 3063, 1406, 70, 'Andromeda');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('elliot', 'IRTF', 'TESS', 41928, 26, 1866, 1064, 1464, 25, 'Centaurus');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('yuliana', 'UKIRT', 'Huygens', 16322, 35, 5515, 3786, 5174, 76, 'Bode');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('emiliano', 'Kepler', 'Huygens', 39190, 40, 7541, 8615, 5333, 65, 'Messier');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('paula', 'Kepler', 'TESS', 29199, 42, 5995, 3402, 1925, 47, 'Messier');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('payton', 'VISTA', 'TESS', 76188, 41, 1887, 1817, 1867, 87, 'Magellanic');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('liliana', 'UKIRT', 'Huygens', 87296, 35, 3539, 8888, 5248, 28, 'NGC-1068');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('alia', 'VISTA', 'TESS', 46434, 42, 7457, 8706, 2291, 62, 'Centaurus');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('jasper', 'Kepler', 'Hubble', 90532, 31, 1876, 5336, 7326, 16, 'NGC-1068');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('noelle', 'ATA', 'MOM', 33680, 26, 1594, 8005, 9900, 45, 'Andromeda');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('duncan', 'UKIRT', 'TESS', 9415, 33, 9113, 7391, 4530, 27, 'Bode');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('meadow', 'UKIRT', 'Huygens', 15096, 33, 2957, 2449, 1808, 40, 'Andromeda');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('malcolm', 'Arecebo', 'TESS', 19479, 29, 7951, 7968, 3492, 37, 'Triangulum');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('cason', 'VISTA', 'TESS', 45298, 35, 5440, 1485, 5518, 70, 'Messier');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('adilan', 'ATA', 'Huygens', 89498, 34, 9964, 2570, 703, 95, 'NGC-1068');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('ashlyn', 'VISTA', 'Hubble', 38990, 42, 4332, 3638, 1290, 8, 'Magellanic');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('mara', 'Kepler', 'MOM', 16393, 42, 8831, 3204, 1879, 60, 'Triangulum');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('mateo', 'UKIRT', 'Huygens', 97577, 44, 2705, 855, 4353, 77, 'Andromeda');
+INSERT INTO Star (s_name, t_name, m_id, size, initial_location, angular_velocity, distance, luminosity, age, g_name) VALUES ('sun', 'Hubble', 'MOM', 97577, 44, 2705, 855, 4353, 77, 'MilkyWay');
+
+
+
+
+
+
+Planet:
+
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('smar', 'ATA', 'TESS', 48, 3421, 2353, 97394, 'bentley');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('quinton', 'ATA', 'Hubble', 34, 1741, 5695, 60407, 'malcolm');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('gilese', 'UKIRT', 'MOM', 34, 4998, 3669, 8286, 'payton');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('lavel', 'ATA', 'Hubble', 38, 779, 9095, 13604, 'payton');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('earth', 'VISTA', 'Hubble', 34, 5551, 5079, 47301, 'sun');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('firelli', 'Hubble', 'TESS', 41, 7581, 2794, 13960, 'elliot');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('jiter', 'Arecebo', 'Hubble', 40, 9518, 4060, 20633, 'bentley');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('saturn', 'IRTF', 'Hubble', 36, 2954, 3076, 13970, 'sun');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('mercury', 'IRTF', 'TESS', 30, 5879, 8476, 20468, 'sun');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('arthur', 'Kepler', 'Hubble', 34, 2773, 4368, 36574, 'elliot');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('oscar', 'VISTA', 'Huygens', 34, 5144, 8596, 82967, 'elliot');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('kathleen', 'Arecebo', 'MOM', 30, 6315, 2572, 71539, 'duncan');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('nadia', 'Kepler', 'TESS', 42, 3893, 5476, 71058, 'payton');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('colin', 'VISTA', 'Huygens', 34, 6427, 3004, 3235, 'adilan');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('janessa', 'IRTF', 'Huygens', 39, 7282, 3289, 97240, 'elliot');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('remington', 'Kepler', 'Hubble', 40, 3338, 5041, 16207, 'malcolm');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('lucia', 'Kepler', 'MOM', 42, 5382, 6396, 40918, 'adilan');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('cherish', 'ATA', 'MOM', 35, 480, 6390, 43166, 'bentley');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('amaya', 'VISTA', 'Huygens', 45, 3886, 8701, 47963, 'duncan');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('russell', 'UKIRT', 'Hubble', 35, 4825, 9529, 2083, 'quinton');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('fatima', 'Kepler', 'MOM', 36, 3559, 2289, 92902, 'bentley');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('isabel', 'ATA', 'TESS', 43, 3157, 1974, 67613, 'malcolm');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('danielle', 'IRTF', 'MOM', 36, 5961, 7342, 13818, 'malcolm');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('Jupiter', 'UKIRT', 'TESS', 47, 4780, 726, 3313, 'sun');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('elaina', 'UKIRT', 'Hubble', 40, 1742, 4238, 75778, 'quinton');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('taliyah', 'Kepler', 'Huygens', 38, 7001, 2304, 77128, 'cason');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('ayden', 'VISTA', 'Huygens', 34, 4252, 7898, 75274, 'malcolm');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('april', 'IRTF', 'TESS', 41, 1126, 9081, 56767, 'duncan');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('ernest', 'UKIRT', 'TESS', 37, 7908, 2506, 61800, 'quinton');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('coleman', 'IRTF', 'TESS', 34, 9895, 5228, 98898, 'elliot');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('tyrell', 'Hubble', 'TESS', 35, 1209, 751, 93490, 'duncan');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('luciano', 'VISTA', 'Hubble', 34, 5374, 3591, 34555, 'cason');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('gilberto', 'VISTA', 'TESS', 43, 7964, 4195, 12351, 'malcolm');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('pierre', 'Hubble', 'Hubble', 42, 3222, 4856, 90272, 'mateo');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('kaylen', 'UKIRT', 'Huygens', 41, 2513, 3418, 32398, 'cason');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('arabella', 'Arecebo', 'Huygens', 39, 4207, 1115, 80885, 'cason');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('teagan', 'ATA', 'TESS', 37, 103, 5045, 42319, 'cason');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('tony', 'IRTF', 'MOM', 39, 8091, 5484, 4009, 'adilan');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('araceli', 'Arecebo', 'MOM', 33, 1169, 6123, 93610, 'bentley');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('danny', 'Hubble', 'Huygens', 38, 2294, 3696, 40917, 'quinton');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('esperanza', 'UKIRT', 'Huygens', 41, 7503, 8947, 41012, 'adilan');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('vivienne', 'Arecebo', 'TESS', 33, 9278, 844, 35998, 'cason');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('enzo', 'Kepler', 'Hubble', 36, 166, 5059, 14743, 'cason');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('jordan', 'UKIRT', 'Hubble', 37, 8957, 693, 84371, 'mateo');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('jazlyn', 'Kepler', 'TESS', 40, 357, 8720, 8526, 'bentley');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('jimena', 'Kepler', 'Huygens', 41, 6291, 5117, 71183, 'duncan');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('clayton', 'VISTA', 'Hubble', 43, 6848, 5533, 37874, 'elliot');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('seamus', 'Kepler', 'Hubble', 33, 785, 7823, 60416, 'payton');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('kobe', 'Arecebo', 'TESS', 50, 716, 2887, 33499, 'elliot');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('mayson', 'IRTF', 'Hubble', 38, 2978, 706, 85183, 'duncan');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('mars', 'VISTA', 'Hubble', 43, 6848, 5533, 37874, 'sun');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('venus', 'Kepler', 'Hubble', 33, 785, 7823, 60416, 'sun');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('neptune', 'Arecebo', 'TESS', 50, 716, 2887, 33499, 'sun');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('pluto', 'IRTF', 'Hubble', 38, 2978, 706, 85183, 'sun');
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('jupiter', 'UKIRT', 'TESS', 47, 4780, 726, 3313, 'sun');
+
+
+
+Employee:
+
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (25, 'lily', 'Engineer', 943947, '1994-11-14', '1996-07-31', NULL);
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (30, 'cayden', 'Scientist', 994262, '1991-10-02', '1998-07-07', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (20, 'lena', 'Astronaut', 702618, '2000-02-08', '2004-06-24', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (10, 'aydin', 'Scientist', 933878, '1994-04-27', '2000-03-17', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) 
+VALUES (1, 'madilynn', 'Technician', 951327, '1997-01-28', '2014-10-01', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (15, 'chaya', 'Astronaut', 662964, '2000-07-16', '2013-05-15', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (2, 'trevor', 'Astronaut', 823527, '2003-05-14', '2014-03-05', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (3, 'eric', 'Engineer', 259722, '1993-12-13', '2001-02-02', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (4, 'iliana', 'Astronaut', 788883, '1990-10-10', '2016-12-15', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (5, 'madison', 'Engineer', 518452, '1999-03-11', '2015-10-24', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (6, 'tristin', 'Scientist', 627795, '1993-07-03', '2008-07-05', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (7, 'princeton', 'Scientist', 638837, '2012-02-21', '2017-05-15', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (8, 'jaylynn', 'Technician', 973157, '2003-01-11', '2003-08-28', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (9, 'benjamin', 'Scientist', 972359, '2003-05-24', '2013-08-14', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (11, 'wyatt', 'Scientist', 632305, '2010-08-17', '2017-01-28', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (12, 'mckenna', 'Technician', 476315, '2012-04-10', '2016-10-10', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (13, 'cambria', 'Technician', 525377, '2001-04-02', '2005-06-04', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (14, 'jorge', 'Astronaut', 520521, '1992-02-09', '1999-10-10', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (16, 'elise', 'Technician', 799130, '2007-10-08', '2009-11-08', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (17, 'alonso', 'Astronaut', 878756, '1998-04-07', '2014-11-17', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (18, 'mariana', 'Engineer', 575356, '2012-01-31', '2016-11-28', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (19, 'dwayne', 'Astronaut', 186874, '1992-09-29', '2011-03-05', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (21, 'ryann', 'Scientist', 215641, '2009-05-01', '2010-04-19', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (22, 'kyler', 'Astronaut', 303707, '2005-08-27', '2005-10-16', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (23, 'grady', 'Scientist', 753738, '2006-03-08', '2014-01-01', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (24, 'anya', 'Technician', 650777, '2003-02-16', '2015-07-10', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (26, 'caitlin', 'Technician', 688782, '2014-05-07', '2017-05-01', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (27, 'ignacio', 'Astronaut', 165201, '1990-11-16', '1998-06-08', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (28, 'alexzander', 'Engineer', 791006, '2009-05-24', '2017-12-24', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (29, 'ivy', 'Scientist', 705614, '2010-05-23', '2014-04-28', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (31, 'alessandra', 'Astronaut', 560856, '1993-11-25', '2012-09-09', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (32, 'esteban', 'Astronaut', 287937, '1993-07-28', '2002-10-19', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (33, 'jorden', 'Scientist', 996216, '2011-09-08', '2015-09-12', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (34, 'jacoby', 'Engineer', 831704, '2015-04-06', '2000-10-11', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (35, 'nelson', 'Astronaut', 303311, '2007-08-20', '2008-01-10', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (36, 'dario', 'Astronaut', 434277, '1997-03-01', '2012-02-16', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (37, 'chris', 'Engineer', 619424, '2004-10-01', '2013-12-18', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (38, 'nova', 'Scientist', 724604, '2010-07-10', '2017-03-13', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (39, 'alexandra', 'Astronaut', 678271, '2005-09-22', '2015-02-27', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (40, 'rylie', 'Engineer', 498296, '1993-02-27', '2005-10-03', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (41, 'demi', 'Scientist', 334536, '1994-07-11', '1999-03-30', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (42, 'milania', 'Scientist', 788586, '2002-10-03', '2005-12-12', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (43, 'emerson', 'Engineer', 573372, '1999-02-14', '2014-01-23', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (44, 'jaden', 'Technician', 531797, '1992-04-29', '1996-10-05', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (45, 'felipe', 'Engineer', 942086, '1991-03-08', '1995-07-03', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (46, 'gwyneth', 'Engineer', 712908, '2001-08-11', '2007-06-07', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (47, 'mustafa', 'Engineer', 450366, '2009-02-08', '2017-08-04', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (48, 'noah', 'Technician', 254631, '2008-10-19', '2010-05-22', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (49, 'alexis', 'Astronaut', 692514, '2012-03-27', '2017-12-28', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (50, 'tenley', 'Astronaut', 172305, '1996-07-03', '2010-07-04', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (51, 'april', 'Technician', 279255, '2012-08-31', '2015-01-10', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (52, 'deacon', 'Technician', 352270, '1996-06-24', '2013-11-15', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (53, 'trevor', 'Engineer', 195912, '2013-02-15', '2017-11-04', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (54, 'camden', 'Astronaut', 620177, '1997-11-09', '2015-07-21', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (55, 'janae', 'Scientist', 460123, '2002-03-31', '2007-10-31', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (56, 'rowen', 'Engineer', 971483, '1994-08-29', '2010-07-02', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (57, 'travis', 'Technician', 357071, '2007-03-05', '2015-06-30', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (58, 'stella', 'Engineer', 914231, '1990-12-16', '2016-12-26', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (59, 'august', 'Technician', 218648, '1995-08-03', '1996-02-04', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (60, 'sienna', 'Astronaut', 475801, '1995-05-03', '2010-05-26', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (61, 'larry', 'Technician', 559375, '2002-08-29', '2010-07-15', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (62, 'james', 'Engineer', 903892, '2016-01-05', '2016-08-25', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (63, 'zaire', 'Technician', 224661, '1992-10-17', '2012-03-22', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (64, 'ana', 'Technician', 427257, '2014-01-08', '2017-12-10', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (65, 'myla', 'Technician', 173509, '1997-04-16', '2014-05-01', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (66, 'jocelynn', 'Technician', 665154, '1991-08-29', '2002-06-22', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (67, 'ali', 'Scientist', 349626, '1997-09-17', '2014-07-04', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (68, 'zain', 'Scientist', 493795, '1994-05-01', '2012-08-29', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (69, 'joey', 'Engineer', 772541, '1991-09-12', '2007-01-26', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (70, 'jeramiah', 'Technician', 303028, '2007-07-22', '2016-05-28', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (71, 'patricia', 'Technician', 748549, '2007-01-26', '2015-09-13', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (72, 'myla', 'Technician', 542777, '2008-09-27', '2017-01-18', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (73, 'quintin', 'Technician', 993600, '1996-04-07', '2012-06-24', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (74, 'laylah', 'Engineer', 454317, '2009-02-19', '2010-12-27', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (75, 'dexter', 'Engineer', 924555, '2016-12-26', '2017-11-21', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (76, 'ronan', 'Engineer', 470173, '2011-07-23', '2016-07-19', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (77, 'ronin', 'Scientist', 498223, '2008-02-26', '2010-10-15', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (78, 'raquel', 'Scientist', 214185, '1993-09-23', '2009-03-23', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (79, 'darien', 'Scientist', 210283, '1999-03-02', '2003-07-29', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (80, 'isaac', 'Technician', 332307, '2012-11-04', '2014-03-12', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (81, 'joel', 'Technician', 248342, '1994-12-16', '1998-04-06', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (82, 'mina', 'Engineer', 678837, '2015-04-21', '2017-02-13', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (83, 'quinten', 'Engineer', 879229, '2000-09-26', '2002-07-18', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (84, 'lawrence', 'Engineer', 992449, '2000-09-11', '2017-12-13', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (85, 'alexis', 'Astronaut', 532997, '1994-08-13', '2001-01-10', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (86, 'tiffany', 'Scientist', 943597, '2015-10-22', '2015-11-24', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (87, 'mila', 'Astronaut', 982306, '2010-04-14', '2012-07-01', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (88, 'lilliana', 'Scientist', 468058, '2006-05-23', '2017-04-07', '20');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (89, 'brian', 'Engineer', 952014, '2004-08-18', '2015-07-13', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (90, 'derek', 'Technician', 220756, '2008-09-21', '2014-10-02', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (92, 'paisley', 'Scientist', 466170, '1995-05-28', '2002-04-25', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (93, 'angela', 'Engineer', 587215, '1997-07-03', '1999-12-01', '25');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (94, 'houston', 'Scientist', 244805, '1996-06-15', '2001-12-03', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (95, 'rafael', 'Technician', 509977, '1990-02-14', '1995-08-31', '15');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (97, 'quentin', 'Technician', 769186, '2000-02-20', '2002-08-08', '10');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (99, 'nelson', 'Technician', 637712, '1998-11-10', '2006-08-20', '30');
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (100, 'nyla', 'Scientist', 231235, '1990-01-01', '1998-07-06', '25');
+
+
+
+Spacecraft:
+
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Mercury-Spacecraft', '2005-10-17', 'Working', '2030-08-29', 62941.83);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Gemini', '1990-04-05', 'Not-Working', '2014-04-10', 5893.36);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Apollo', '1970-10-03', 'Not-Working', '2010-11-29', 42135.59);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('X-15', '2004-04-23', 'Working', '2040-03-18', 56608.44);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Dragon', '1947-09-05', 'Not-Working', '2000-05-23', 89133.12);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Orion', '1953-02-20', 'Not-Working', '2009-03-21', 4446.72);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Dream-Chaser', '2011-03-15', 'Working', '2077-10-03', 78977.61);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Blue-Origin', '2016-08-18', 'Working', '2090-07-10', 23428.78);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('BFR', '1900-12-29', 'Not-Working', '1997-02-12', 47582.15);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Dyna-Soar', '1990-07-12', 'Not-Working', '2017-09-14', 73135.89);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Rockwell-X-30', '2013-08-31', 'Working', '2026-07-16', 23173.47);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Soyuz', '2014-06-17', 'Working', '2040-06-29', 99208.28);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('LK-1', '1997-04-03', 'Not-Working', '2015-07-15', 21831.45);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Spiral-EPOS', '2009-04-19', 'Working', '2020-08-17', 96472.59);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Hermes', '1993-05-24', 'Not-Working', '2016-12-13', 78638.98);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Hopper', '2010-06-11', 'Working', '2050-03-25', 65828.82);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Hope-X', '2013-07-18', 'Working', '2032-06-26', 38574.28);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Explorer-3', '1994-07-20', 'Not-Working', '2007-06-13', 18610.13);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Vanguard-I', '1997-05-07', 'Not-Working', '2015-05-14', 9229.95);
+insert into Spacecraft (sc_name, manufacture_date, status, termination_date, payload) values ('Pioneer-2', '2008-08-10', 'Working', '2045-09-11', 58729.23);
+
+
+
+Spacestation:
+
+insert into Spacestation (st_no, sc_name, initial_location, capacity, actual_term_date, expected_term_date, angular_velocity) values (1, 'Explorer-3', '40.7128°N,74.0060°W', 4860.32, '2020-11-24', '2020-11-24', 783.76);
+insert into Spacestation (st_no, sc_name, initial_location, capacity, actual_term_date, expected_term_date, angular_velocity) values (2, 'Hopper', '34.0522°N,118.2437°W', 10819.22, '1999-01-05', '1999-01-05', 397.21);
+insert into Spacestation (st_no, sc_name, initial_location, capacity, actual_term_date, expected_term_date, angular_velocity) values (3, 'Dream-Chaser', '51.5074°N,0.1278°W', 8614.09, '2009-12-23', '2010-02-13', 771.39);
+insert into Spacestation (st_no, sc_name, initial_location, capacity, actual_term_date, expected_term_date, angular_velocity) values (4, 'Orion', '52.5200°N,13.4050°E', 62871.32, '2004-03-29', '2005-09-28', 657.5);
+insert into Spacestation (st_no, sc_name, initial_location, capacity, actual_term_date, expected_term_date, angular_velocity) values (5, 'Blue-Origin', '48.8566°N,2.3522°E', 31323.64, '2013-12-17', '2013-12-17', 359.99);
+
+
+Spacestation_country:
+
+insert into spacestation_country (st_no, country_name) values (1, 'USSR');
+insert into spacestation_country (st_no, country_name) values (2, 'United-States');
+insert into spacestation_country (st_no, country_name) values (3, 'USSR');
+insert into spacestation_country (st_no, country_name) values (3, 'Russia');
+insert into spacestation_country (st_no, country_name) values (2, 'India');
+insert into spacestation_country (st_no, country_name) values (4, 'Russia');
+insert into spacestation_country (st_no, country_name) values (4, 'Japan');
+insert into spacestation_country (st_no, country_name) values (4, 'United-States');
+insert into spacestation_country (st_no, country_name) values (5, 'India');
+insert into spacestation_country (st_no, country_name) values (1, 'India');
+insert into spacestation_country (st_no, country_name) values (5, 'USSR');
+insert into spacestation_country (st_no, country_name) values (5, 'China');
+insert into spacestation_country (st_no, country_name) values (3, 'Korea');
+insert into spacestation_country (st_no, country_name) values (1, 'Africa');
+
+
+
+Astronaut:
+
+insert into Astronaut (e_no, spacetime, st_no) values (2, 624, 1);
+insert into Astronaut (e_no, spacetime, st_no) values (4, 2063, 2);
+insert into Astronaut (e_no, spacetime, st_no) values (14, 9979, 3);
+insert into Astronaut (e_no, spacetime, st_no) values (15, 4056, 4);
+insert into Astronaut (e_no, spacetime, st_no) values (17, 5060, 5);
+insert into Astronaut (e_no, spacetime, st_no) values (19, 7793, 1);
+insert into Astronaut (e_no, spacetime, st_no) values (20, 6025, 2);
+insert into Astronaut (e_no, spacetime, st_no) values (22, 7495, 3);
+insert into Astronaut (e_no, spacetime, st_no) values (27, 6213, 4);
+insert into Astronaut (e_no, spacetime, st_no) values (31, 5251, 5);
+insert into Astronaut (e_no, spacetime, st_no) values (32, 1274, 1);
+insert into Astronaut (e_no, spacetime, st_no) values (35, 5573, 2);
+insert into Astronaut (e_no, spacetime, st_no) values (36, 1673, 3);
+insert into Astronaut (e_no, spacetime, st_no) values (39, 4431, 4);
+insert into Astronaut (e_no, spacetime, st_no) values (49, 2370, 5);
+insert into Astronaut (e_no, spacetime, st_no) values (50, 1211, 1);
+insert into Astronaut (e_no, spacetime, st_no) values (54, 3922, 2);
+insert into Astronaut (e_no, spacetime, st_no) values (60, 5699, 3);
+insert into Astronaut (e_no, spacetime, st_no) values (85, 313, 4);
+insert into Astronaut (e_no, spacetime, st_no) values (87, 9704, 5);
+
+
+
+Launch_site:
+
+insert into Launch_site (location, site_no, country) values ('Cape-Canaveral',101, 'USA');
+insert into Launch_site (location, site_no, country) values ('Vandenburg', 114, 'USA');
+insert into Launch_site (location, site_no, country) values ('Oughterard', 202, 'Ireland');
+insert into Launch_site (location, site_no, country) values ('Sabha', 310, 'Libya');
+insert into Launch_site (location, site_no, country) values ('Regane',311, 'Algeria');
+insert into Launch_site (location, site_no, country) values ('Guangde',405, 'China');
+insert into Launch_site (location, site_no, country) values ('Thiruvananthapuram',407, 'India');
+insert into Launch_site (location, site_no, country) values ('Ryori', 410, 'Japan');
+insert into Launch_site (location, site_no, country) values ('Seoul', 409, 'Korea');
+insert into Launch_site (location, site_no, country) values ('Berlin',208 , 'Germany');
+insert into Launch_site (location, site_no, country) values ('Marka', 214, 'Norway');
+insert into Launch_site (location, site_no, country) values ('Nausta', 213, 'Spain');
+insert into Launch_site (location, site_no, country) values ('South-Uist', 220, 'UK');
+insert into Launch_site (location, site_no, country) values ('Hall-Beach', 112, 'Canada');
+insert into Launch_site (location, site_no, country) values ('Middelburg', 315, 'South Africa');
+insert into Launch_site (location, site_no, country) values ('Florida', 102, 'USA');
+insert into Launch_site (location, site_no, country) values ('ISRO', 408, 'India');
+insert into Launch_site (location, site_no, country) values ('Borisovka', 218, 'Russia');
+insert into Launch_site (location, site_no, country) values ('Garut', 419, 'Indonesia');
+insert into Launch_site (location, site_no, country) values ('Malindi', 320, 'Kenya');
+
+
+
+
+Mission_Consists_of:
+
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (27, 'Guangde', 405, 'JPSS-1', 'Blue-Origin');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (19, 'Middelburg', 315, 'Curiosity-Mars-Rover', 'Gemini');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (21, 'Guangde', 405, 'Hubble', 'Dragon');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (33, 'Seoul', 409, 'SM1', 'Spiral-EPOS');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (31, 'Middelburg', 315, 'Hubble', 'Dragon');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (89, 'Regane', 311, 'Expedition-5', 'Rockwell-X-30');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (66, 'Cape-Canaveral', 101, 'TESS', 'Rockwell-X-30');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (4, 'Berlin', 208, 'SM1', 'X-15');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (25, 'Cape-Canaveral', 101, 'SPACEX-CRS-13', 'Blue-Origin');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (47, 'Ryori', 410, 'Galileo', 'Rockwell-X-30');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (74, 'Ryori', 410, 'SM1', 'Gemini');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (49, 'Ryori', 410, 'Apollo', 'Blue-Origin');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (95, 'Sabha', 310, 'Hubble', 'Gemini');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (48, 'Vandenburg', 114, 'Chandra-X-RAY', 'Rockwell-X-30');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (42, 'Guangde', 405, 'New-Horizons', 'Spiral-EPOS');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (95, 'Oughterard', 202, 'Apollo', 'Apollo');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (38, 'Vandenburg', 114, 'Insight-MARS', 'Dragon');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (61, 'Vandenburg', 114, 'Explorer', 'Rockwell-X-30');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (63, 'Berlin', 208, 'Parker-Solar-probe', 'Gemini');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (31, 'Berlin', 208, 'TESS', 'Dream-Chaser');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (86, 'Ryori', 410, 'Expedition-5', 'Apollo');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (20, 'Guangde', 405, 'Voyager', 'Blue-Origin');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (22, 'Sabha', 310, 'Curiosity-Mars-Rover', 'Apollo');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (94, 'Cape-Canaveral', 101, 'Cassini', 'Gemini');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (28, 'Guangde', 405, 'Huygens', 'X-15');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (2, 'Sabha', 310, 'SPACEX-CRS-13', 'Blue-Origin');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (47, 'Oughterard', 202, 'Orbital-ATK-CRS-8', 'X-15');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (5, 'Oughterard', 202, 'Cassini', 'Dream-Chaser');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (89, 'Guangde', 405, 'Parker-Solar-probe', 'Dragon');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (32, 'Vandenburg',114, 'MOM', 'Spiral-EPOS');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Ryori', 410, 'Orbital-ATK-CRS-8', 'X-15');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Berlin', 208, 'SPACEX-CRS-13', 'Apollo');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Vandenburg', 114, 'Hubble', 'Gemini');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Vandenburg', 114, 'Expedition-5', 'Rockwell-X-30');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Sabha', 310, 'GRACE-FO', 'Gemini');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Seoul', 409, 'Insight-MARS', 'Orion');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Guangde', 405, 'MOM', 'Blue-Origin');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Vandenburg', 114, 'TESS', 'Dragon');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Ryori', 410, 'Parker-Solar-probe', 'Apollo');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Middelburg', 315, 'SM1', 'Blue-Origin');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Cape-Canaveral', 101, 'Huygens', 'Orion');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Sabha', 310, 'Curiosity-Mars-Rover', 'Dragon');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Middelburg', 315, 'New-Horizons', 'Blue-Origin');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Middelburg', 315, 'Cassini', 'X-15');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Regane', 311, 'Voyager', 'Dragon');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Ryori', 410, 'Chandra-X-RAY', 'Rockwell-X-30');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Ryori', 410, 'Apollo', 'Gemini');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Cape-Canaveral', 101, 'Explorer', 'Blue-Origin');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('27', 'Middelburg', 315, 'Galileo', 'Gemini');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Berlin', 208, 'SPACEX-CRS-13', 'Apollo');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Vandenburg', 114, 'Hubble', 'Gemini');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Vandenburg', 114, 'Expedition-5', 'Rockwell-X-30');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Sabha', 310, 'GRACE-FO', 'Gemini');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Seoul', 409, 'Insight-MARS', 'Orion');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Guangde', 405, 'MOM', 'Blue-Origin');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Vandenburg', 114, 'TESS', 'Dragon');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Ryori', 410, 'Parker-Solar-probe', 'Apollo');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Middelburg', 315, 'SM1', 'Blue-Origin');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Cape-Canaveral', 101, 'Huygens', 'Orion');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Sabha', 310, 'Curiosity-Mars-Rover', 'Dragon');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Middelburg', 315, 'New-Horizons', 'Blue-Origin');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Middelburg', 315, 'Cassini', 'X-15');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Regane', 311, 'Voyager', 'Dragon');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Ryori', 410, 'Chandra-X-RAY', 'Rockwell-X-30');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Ryori', 410, 'Apollo', 'Gemini');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Cape-Canaveral', 101, 'Explorer', 'Blue-Origin');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Middelburg', 315, 'Galileo', 'Gemini');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Regane', 311, 'Orbital-ATK-CRS-8', 'X-15');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES (46, 'Regane', 311, 'JPSS-1', 'X-15');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('14', 'Ryori', 410, 'Orbital-ATK-CRS-8', 'X-15');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('14', 'Berlin', 208, 'SPACEX-CRS-13', 'Apollo');
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('14', 'Vandenburg', 114, 'Hubble', 'Gemini');
+
+
+
+
+
+Satellite:
+
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-1', 'PEO', 196, '52.5200°N,13.4050°E', 6278, '1924-02-21', '1937-10-10', '1977-01-29', 'earth', 'Orbital-ATK-CRS-8');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-2', 'HTO', 407, '52.5200°N,13.4050°E', 9692, '1917-10-01', '1921-10-31', '1940-09-21', 'earth','Orbital-ATK-CRS-8');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-3', 'PSSO', 59, '34.0522°N,118.2437°W', 7861, '1975-07-21', '1995-10-05', '1995-10-05', 'earth','JPSS-1');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-4', 'HEO', 254, '48.8566°N,2.3522°E', 8502, '1972-08-11', '1979-04-17', '2000-06-01', 'earth','JPSS-1');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-5', 'HTO', 294, '51.5074°N,0.1278°W', 2263, '1950-07-23', '1980-06-18', '1980-06-18', 'earth','SPACEX-CRS-13');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-6', 'LEO', 460, '51.5074°N,0.1278°W', 650, '1921-08-10', '1941-11-11', '1951-10-09', 'earth','SPACEX-CRS-13');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-7', 'MEO', 411, '40.7128°N,74.0060°W', 9611, '1916-12-12', '1934-12-16', '1934-12-16', 'mars','Insight-MARS');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-8', 'HEO', 258, '48.8566°N,2.3522°E', 166, '1917-06-19', '1946-01-21', '1946-01-21', 'saturn','Expedition-5');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-9', 'HEO', 132, '34.0522°N,118.2437°W', 4402, '1961-08-19', '1999-01-10', '2000-04-19', 'earth','GRACE-FO');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-10', 'EO', 182, '51.5074°N,0.1278°W', 5821, '2001-01-22', '2002-02-20', '2015-05-23', 'earth','Hubble');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-11', 'PSSO', 438, '40.7128°N,74.0060°W', 2059, '1946-04-27', '1966-05-29', '1966-05-29', 'neptune','MOM');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-12', 'EO', 354, '51.5074°N,0.1278°W', 369, '1909-03-04', '1929-06-04', '1935-04-15', 'mars','Insight-MARS');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-13', 'PSSO', 442, '52.5200°N,13.4050°E', 1286, '1962-03-05', '1978-04-11', '1980-06-22', 'jupiter','TESS');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-14', 'PEO', 301, '52.5200°N,13.4050°E', 7703, '1945-09-24', '1995-08-12', '2004-03-26', 'venus','Parker-Solar-probe');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-15', 'HEO', 477, '51.5074°N,0.1278°W', 1668, '1964-10-04', '1985-09-10', '2000-12-04', 'mars','Curiosity-Mars-Rover');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-16', 'HEO', 361, '51.5074°N,0.1278°W', 2587, '1975-10-27', '2004-10-25', '2010-11-17', 'saturn','SM1');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-17', 'HTO', 372, '52.5200°N,13.4050°E', 907, '1937-04-25', '1967-06-08', '1967-06-08', 'earth','New-Horizons');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-18', 'MEO', 305, '34.0522°N,118.2437°W', 3088, '1956-04-06', '1978-01-26', '1980-05-27', 'earth','Voyager');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-19', 'HTO', 277, '52.5200°N,13.4050°E', 5903, '1911-04-17', '1912-05-10', '1965-04-11', 'earth','Cassini');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-20', 'PEO', 77, '40.7128°N,74.0060°W', 2886, '1945-06-07', '1965-09-04', '1965-09-04', 'earth','Huygens');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-21', 'MEO', 115, '34.0522°N,118.2437°W', 7184, '1972-09-10', '2000-12-24', '2000-12-24', 'earth','Chandra-X-RAY');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-22', 'GEO', 228, '52.5200°N,13.4050°E', 6646, '1960-12-27', '1980-11-23', '1982-01-31', 'earth','Apollo');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-23', 'GEO', 256, '52.5200°N,13.4050°E', 6638, '1957-08-27', '1977-04-26', '1977-04-26', 'earth','Explorer');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-24', 'LEO', 177, '34.0522°N,118.2437°W', 9044, '1940-03-16', '1942-04-16', '1970-06-08', 'earth','Explorer');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-25', 'HEO', 355, '48.8566°N,2.3522°E', 4538, '1962-02-13', '2000-05-11', '2001-09-25', 'earth','Galileo');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-26', 'GEO', 256, '52.5200°N,13.4050°E', 6638, '1957-08-27', '1977-04-26', '1977-04-26', 'firelli','Apollo');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-27', 'LEO', 177, '34.0522°N,118.2437°W', 9044, '1940-03-16', '1942-04-16', '1970-06-08', 'arthur','Explorer');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-28', 'HEO', 355, '48.8566°N,2.3522°E', 4538, '1962-02-13', '2000-05-11', '2001-09-25', 'oscar','Galileo');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-29', 'HTO', 277, '52.5200°N,13.4050°E', 5903, '1911-04-17', '1912-05-10', '1965-04-11', 'russell','Cassini');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-30', 'PEO', 77, '40.7128°N,74.0060°W', 2886, '1945-06-07', '1965-09-04', '1965-09-04', 'elaina','Huygens');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-31', 'ernest', 115, '34.0522°N,118.2437°W', 7184, '1972-09-10', '2000-12-24', '2000-12-24', 'earth','Chandra-X-RAY');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-32', 'PSSO', 442, '52.5200°N,13.4050°E', 1286, '1962-03-05', '1978-04-11', '1980-06-22', 'fatima','TESS');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-33', 'PEO', 301, '52.5200°N,13.4050°E', 7703, '1945-09-24', '1995-08-12', '2004-03-26', 'jiter','Parker-Solar-probe');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('USA-34', 'HEO', 477, '51.5074°N,0.1278°W', 1668, '1964-10-04', '1985-09-10', '2000-12-04', 'smar','Curiosity-Mars-Rover');
+
+--added
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('IND-13', 'MEO', 228, '82.3200°N,33.4350°E', 7646, '1960-12-27', '1980-11-23', '1982-01-31', 'gilese','Apollo');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('IND-1724', 'EO', 256, '59.9200°N,16.4050°E', 6738, '1957-08-27', '1977-04-26', '1977-04-26', 'danielle','Cassini');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('INSAT-1', 'LEO', 177, '34.6522°N,118.2337°W', 9044, '1940-03-16', '1942-04-16', '1970-06-08', 'ayden','Explorer');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('IND-17', 'EO', 355, '48.8566°N,36.3522°E', 4538, '1962-02-13', '2000-05-11', '2001-09-25', 'pierre','Galileo');
+
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time,  actual_term_date, expected_term_date, p_name, m_id) VALUES ('IND-0', 'PSSO', 59, '69.0522°N,128.2437°W', 7861, '1975-07-21', '1995-10-05', '1995-10-05', 'tony','JPSS-1');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('IND-3', 'HEO', 254, '48.8536°N,2.3522°E', 8502, '1972-08-11', '1979-04-17', '2000-06-01', 'kobe','Huygens');
+INSERT INTO Satellite (sat_name, type, weight, initial_location, angular_velocity, launch_time, actual_term_date, expected_term_date, p_name, m_id) VALUES ('INSAT-2', 'HTO', 294, '51.5074°N,0.1278°W', 2263, '1950-07-23', '1980-06-18', '1980-06-18', 'april','SPACEX-CRS-13');
+
+
+
+
+
+
+Repairs:
+
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-1', 17, '2004-09-21', '2004-10-25');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-2', 60, '2006-11-24', '2006-12-30');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-3', 85, '2012-09-01', '2012-09-28');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-4', 39, '2014-02-18', '2014-03-01');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-5', 50, '2009-08-29', '2009-08-13');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-6', 22, '2008-06-24', '2008-07-24');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-7', 31, '2010-08-30', '2010-08-03');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-8', 39, '1993-02-19', '1993-03-09');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-5', 39, '2016-01-04', '2015-11-30');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-2', 35, '2003-03-16', '2003-02-24');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-5', 20, '2013-10-15', '2013-09-22');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-9', 54, '1998-03-05', '1998-04-01');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-9', 85, '2008-09-20', '2008-10-15');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-9', 60, '2010-09-14', '2010-10-17');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-15', 2, '2004-01-12', '2004-02-07');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-15', 87, '2003-03-24', '2003-04-12');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-20', 20, '1995-09-10', '1995-10-07');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-20', 2, '2007-08-02', '2007-09-09');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-20', 49, '2005-03-01', '2005-05-01');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-20', 15, '2011-04-30', '2011-05-28');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-26', 20, '2015-10-13', '2015-11-09');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-27', 17, '2014-04-10', '2014-05-02');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-28', 4, '1997-12-15', '1998-01-01');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-29', 19, '1988-07-15', '1988-07-30');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-30', 19, '1997-05-26', '1997-06-07');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-5', 14, '2009-08-29', '2009-08-13');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-6', 14, '2008-06-24', '2008-07-24');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-7', 14, '2010-08-30', '2010-08-03');
+INSERT INTO Repairs (sat_name, e_no, in_date, out_date) VALUES ('USA-8', 14, '1993-02-19', '1993-03-09');
+
+

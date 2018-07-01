@@ -1,0 +1,290 @@
+﻿NASA Database Management Systems
+Group ID:- 5.7
+
+
+GROUP MEMBERS:
+201501408: Raj Jakasaniya
+201501452: Dhruv Patel
+201501416: Hasnain Gandhi
+201501177: Naitik Dodia
+
+
+
+NASA CONSOLE BASH SCRIPT
+
+
+
+#!/bin/bash
+
+rm sample.c a.out
+ecpg sample.pgc
+gcc -I /usr/include/postgresql -L /usr/lib/postgresql sample.c -lecpg
+./a.out
+
+
+
+
+NASA CONSOLE APPLICATION
+
+
+#include<stdio.h>
+EXEC SQL INCLUDE sqlca.h;
+
+EXEC SQL BEGIN DECLARE SECTION;
+int a;
+int b;
+char query[10000];
+char sq[1000],x1[100],a1[100],a2[100],a3[100],a4[100],a5[100],a6[100],a7[100],a8[100],a9[100],a10[100];
+int t;
+char z[10000],x[10000],v[1000],n[1000];
+EXEC SQL END DECLARE SECTION;
+
+
+void execute(char *query, int n_col)
+{
+	EXEC SQL PREPARE query_prep FROM :query;
+    	EXEC SQL DECLARE emp_cur CURSOR FOR query_prep;
+        EXEC SQL OPEN emp_cur;
+	
+	if(n_col==0)
+	{
+		while(sqlca.sqlcode==0)
+		{
+			EXEC SQL FETCH NEXT FROM emp_cur;
+			if(sqlca.sqlcode!=0)
+				break;
+		}
+	}	
+	if(n_col==1)
+	{
+		while ( sqlca.sqlcode == 0) {
+			EXEC SQL FETCH FROM emp_cur INTO :a1;
+			if(sqlca.sqlcode!=0)
+				break;     
+			printf("%s\n",a1);
+		}
+	}
+	else if(n_col==2)
+	{
+		while ( sqlca.sqlcode == 0) {
+			EXEC SQL FETCH FROM emp_cur INTO :a1,:a2;
+			if(sqlca.sqlcode!=0)
+				break;      
+			printf("%s %s\n",a1,a2);
+		}
+	}
+	else if(n_col==3)
+	{
+		while ( sqlca.sqlcode == 0) {
+			EXEC SQL FETCH FROM emp_cur INTO :a1,:a2,:a3;
+			if(sqlca.sqlcode!=0)
+				break;      
+			printf("%s %s %s\n",a1,a2,a3);
+		}
+	}
+	else if(n_col==4)
+	{
+		while ( sqlca.sqlcode == 0) {
+			EXEC SQL FETCH FROM emp_cur INTO :a1,:a2,:a3,:a4;
+			if(sqlca.sqlcode!=0)
+				break;      
+			printf("%s %s %s %s\n",a1,a2,a3,a4);
+		}
+	}
+	else if(n_col==5)
+	{
+		while ( sqlca.sqlcode == 0) {
+			EXEC SQL FETCH FROM emp_cur INTO :a1,:a2,:a3,:a4,:a5;
+			if(sqlca.sqlcode!=0)
+				break;      
+			printf("%s %s %s %s %s\n",a1,a2,a3,a4,a5);
+		}
+	}
+	else if(n_col==6)
+	{
+		while ( sqlca.sqlcode == 0) {
+			EXEC SQL FETCH FROM emp_cur INTO :a1,:a2,:a3,:a4,:a5,:a6;
+			if(sqlca.sqlcode!=0)
+				break;      
+			printf("%s %s %s %s %s %s\n",a1,a2,a3,a4,a5,a6);
+		}
+	}
+	else if(n_col==7)
+	{
+		while ( sqlca.sqlcode == 0) {
+			EXEC SQL FETCH FROM emp_cur INTO :a1,:a2,:a3,:a4,:a5,:a6,:a7;
+			if(sqlca.sqlcode!=0)
+				break;      
+			printf("%s %s %s %s %s %s %s\n",a1,a2,a3,a4,a5,a6,a7);
+		}
+	}
+	else if(n_col==8)
+	{
+		while ( sqlca.sqlcode == 0) {
+			EXEC SQL FETCH FROM emp_cur INTO :a1,:a2,:a3,:a4,:a5,:a6,:a7,:a8;
+			if(sqlca.sqlcode!=0)
+				break;      
+			printf("%s %s %s %s %s %s %s %s\n",a1,a2,a3,a4,a5,a6,a7,a8);
+		}
+	}
+	else if(n_col==9)
+	{
+		while ( sqlca.sqlcode == 0) {
+			EXEC SQL FETCH FROM emp_cur INTO :a1,:a2,:a3,:a4,:a5,:a6,:a7,:a8,:a9;
+			if(sqlca.sqlcode!=0)
+				break;      
+			printf("%s %s %s %s %s %s %s %s %s\n",a1,a2,a3,a4,a5,a6,a7,a8,a9);
+		}
+	}
+	else
+	{
+		while ( sqlca.sqlcode == 0) {
+			EXEC SQL FETCH FROM emp_cur INTO :a1,:a2,:a3,:a4,:a5,:a6,:a7,:a8,:a9,:a10;
+			if(sqlca.sqlcode!=0)
+				break;      
+			printf("%s %s %s %s %s %s %s %s %s %s\n",a1,a2,a3,a4,a5,a6,a7,a8,a9,a10);
+		}
+	}
+	EXEC SQL CLOSE emp_cur;
+}
+
+int main()
+{
+	EXEC SQL CONNECT TO postgres@localhost USER postgres USING dhruv;
+    	EXEC SQL SET SEARCH_PATH TO nasa;
+	EXEC SQL set datestyle to dmy;
+	while(1)
+	{
+		printf("\n--------------------------------------------------------------------------------------------------------\n");
+		printf("--------------------------------------------------------------------------------------------------------\n");
+		printf("Press 1 for insert data\n");
+		printf("Press 2 for query\n");
+		printf("Press 3 for stored procedure\n");
+		printf("Press 0 to quit\n");
+		scanf("%d",&a);
+		if(a==1)
+		{
+			printf("Press 1 to insert data in mission table\n");
+			printf("Press 2 to insert data in employee table\n");
+			scanf("%d",&a);
+			if(a==1)
+			{
+				printf("Enter the data in following format\n");
+				printf(" 'm_id','status',budget,'start_date','end_date' \n");
+				scanf("%s",&z);
+				printf("%s\n",z);
+				strcpy(x,"insert into Mission (m_id, status, budget, start_date, end_date) values (");
+				strcpy(v," );");
+				strcat(x,z);
+				strcat(x,v);
+				printf("%s\n",x);
+				EXEC SQL PREPARE mystmt FROM :x;
+				EXEC SQL EXECUTE mystmt;
+				EXEC SQL COMMIT;
+			}
+	      		if(a==2)
+	      		{
+				printf("Enter the data in following format\n");
+				printf(" e_no,'e_name','etype','join_date','end_date',supere_no\n");
+				scanf("%s",&z);
+				printf("%s\n",z);
+				strcpy(x,"insert into Employee (e_no,e_name,etype,join_date,end_date,supere_no) values (");
+				strcpy(v," );");
+				strcat(x,z);
+				strcat(x,v);
+				printf("%s\n",x);
+				EXEC SQL PREPARE mystmt FROM :x;
+				EXEC SQL EXECUTE mystmt;
+				EXEC SQL COMMIT;
+	      		}
+		}
+		else if(a==2)
+		{
+		      printf("Press 1 to get list of all the satellites whose mission failed with a crash on particular planet (here it is earth)\n");
+		      printf("Press 2 to list details of employee's who have worked on all the mission so far\n");
+		      printf("Press 3 to list details of the astronauts who have repaired satellite launched from launch site present in particular country (here it is USA)\n");
+		      printf("Press 4 to list details of astronauts who have repaired satellite which orbit around planet present in galaxy other than 'milky way'");
+		      printf("Press 5 to list all planets which have satellites around them which has gone through a particular space station");
+		      printf("Press 6 to list all planets which were discovered by ‘infrared telescope’ and have a particular type of satellite revolving around it (for our case satellite type is 'LEO')");
+		      printf("Press 7 to list all the stars which can be seen through naked eye (star(luminosity)>1000 or distance(all objects) < 10000)");
+			scanf("%d",&a);
+			if(a==1)
+			{
+				strcpy(query,"SELECT s.* from Satellite as s join Planet as p on s.p_name=p.p_name where p.p_name='earth' and s.actual_term_date < s.expected_term_date");
+				execute(query,10);
+			}
+			else if(a==2)
+			{
+				strcpy(query,"Select distinct * from (SELECT distinct e_no FROM Mission_Consists_of WHERE e_no not in (SELECT e_no FROM ((SELECT e_no,p.m_id FROM (select m_id from 					Mission_Consists_of) as p cross join (select distinct m_id from Mission_Consists_of ) as sp) EXCEPT (SELECT e_no, m_id FROM Mission_Consists_of)) AS r))as r1 natural join 					Employee");
+				execute(query,7);
+			}
+			else if(a==3)
+			{
+				strcpy(query,"SELECT distinct e.* FROM employee as e natural join (SELECT re.* FROM repairs as re join (SELECT * FROM satellite as s join (SELECT * FROM mission_consists_of as m 					join (SELECT * FROM launch_site where country='USA') as r on m.site_no=r.site_no ) as r1 on s.m_id=r1.m_id ) as r2 on re.sat_name=r2.sat_name ) as r3");
+				execute(query,7);
+			}
+			else if(a==4)
+			{
+				strcpy(query,"SELECT distinct * FROM employee as e join (SELECT e_no FROM galaxy as g join (SELECT * FROM star as s join (SELECT * FROM planet as p join (SELECT * FROM satellite 					natural join repairs ) as r1 on p.p_name=r1.p_name ) as r2 on s.s_name=r2.s_name ) as r3 on g.g_name=r3.g_name where g.g_name!='MilkyWay') as r4 on e.e_no=r4.e_no");
+				execute(query,8);
+			}
+			else if(a==5)
+			{
+				strcpy(query,"SELECT distinct p.* FROM planet as p join (SELECT * FROM satellite as s join (SELECT * FROM spacestation natural join mission_consists_of ) as r1 on s.m_id=r1.m_id ) 					as r2 on p.p_name=r2.p_name");
+				execute(query,8);
+			}
+			else if(a==6)
+			{
+				strcpy(query,"SELECT distinct s.* FROM satellite as s join (SELECT distinct p.* FROM telescope as t join planet as p on t.t_name=p.t_name where t.type='Infrared' and 					t.range>=p.distance) as r1 on s.p_name=r1.p_name where s.type='LEO'");
+				execute(query,10);
+			}
+			else if(a==7)
+			{
+				strcpy(query,"Select * from star where luminosity>5000 or distance<1000");
+				execute(query,10);
+			}
+		}
+		else if(a==3)
+		{
+		      printf("Press 1 to update salary of employee who have completed 4 or more missions\n");
+		      printf("Press 2 to print the details of the percentage of all the celestial objects discovered by different telescopes\n");
+		      printf("Press 3 to find out the % of salary in total budget allocated for a mission\n");
+		      printf("Press 4 to find out the details of employees for a given year and job type\n");
+		      scanf("%d",&a);
+		      if(a==1)
+		      {
+			strcpy(z,"Select Update_Salary()");
+						EXEC SQL PREPARE myst FROM :z;
+						EXEC SQL EXECUTE myst;
+						EXEC SQL COMMIT;
+		      }
+		      else if(a==2)
+		      {
+			strcpy(z,"Select * from Discovery_ratio()");
+						EXEC SQL PREPARE myst FROM :z;
+						EXEC SQL EXECUTE myst;
+						EXEC SQL COMMIT;
+		      }
+		      else if(a==3)
+		      {
+			strcpy(z,"Select Budget('Hubble')");
+						EXEC SQL PREPARE myst FROM :z;
+						EXEC SQL EXECUTE myst;
+						EXEC SQL COMMIT;
+		      }
+		      else if(a==4)
+		      {
+			strcpy(z,"Select emp_details('01/01/1950','01/01/2000','Astronaut')");
+						EXEC SQL PREPARE myst FROM :z;
+						EXEC SQL EXECUTE myst;
+						EXEC SQL COMMIT;
+		      }
+			
+		}
+		else if(a==0)
+		{
+			break;
+		}
+	}
+    return 0;
+}

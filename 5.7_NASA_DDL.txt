@@ -1,0 +1,208 @@
+﻿NASA Database Management Systems
+Group ID:- 5.7
+
+
+GROUP MEMBERS:
+201501408: Raj Jakasaniya
+201501452: Dhruv Patel
+201501416: Hasnain Gandhi
+201501177: Naitik Dodia
+
+
+DDL SCRIPT OF NASA RELATIONAL SCHEMA
+
+
+CREATE SCHEMA NASA;
+SET SEARCH_PATH TO NASA;
+CREATE TABLE Mission (
+        m_id VARCHAR(20),
+        status VARCHAR(20),
+        budget NUMERIC(10,0),
+        start_date DATE,
+        end_date DATE,
+        PRIMARY KEY (m_id)
+);
+
+
+CREATE TABLE Telescope (
+        t_name VARCHAR(20),
+        type VARCHAR(20),
+        range NUMERIC(10,1),
+        price NUMERIC(10),
+        PRIMARY KEY (t_name)
+);
+
+
+CREATE TABLE mission_Uses (
+        m_id VARCHAR(20),
+        t_name VARCHAR(20),
+        FOREIGN KEY (m_id) REFERENCES Mission(m_id)         
+                ON DELETE RESTRICT ON UPDATE CASCADE,
+        FOREIGN KEY (t_name) REFERENCES Telescope(t_name)         
+                ON DELETE RESTRICT ON UPDATE CASCADE,
+        PRIMARY KEY (m_id,t_name)
+);
+
+
+CREATE TABLE Galaxy (
+        g_name VARCHAR(20),
+        distance NUMERIC(20),
+        m_id VARCHAR(20),
+        t_name VARCHAR(20),
+        PRIMARY KEY (g_name),
+        FOREIGN KEY (m_id,t_name) REFERENCES mission_Uses(m_id,t_name)         
+                ON DELETE RESTRICT ON UPDATE CASCADE
+);
+ 
+CREATE TABLE Star (
+        s_name VARCHAR(20),
+        t_name VARCHAR(20),
+        m_id VARCHAR(20),
+        size NUMERIC(10,2),
+        initial_location VARCHAR(20),
+        angular_velocity NUMERIC(10,2),
+        distance NUMERIC(10,2),
+        luminosity NUMERIC(20,2),
+        age NUMERIC(10),
+        g_name VARCHAR(20),
+        PRIMARY KEY (s_name),
+        FOREIGN KEY (m_id,t_name) REFERENCES mission_Uses(m_id,t_name)         
+                ON DELETE RESTRICT ON UPDATE CASCADE,        
+        FOREIGN KEY (g_name) REFERENCES  Galaxy(g_name)        
+                ON DELETE RESTRICT ON UPDATE CASCADE
+);
+CREATE TABLE Planet (
+        p_name VARCHAR(20),
+        t_name VARCHAR(20),
+        m_id VARCHAR(20),
+        initial_location VARCHAR(20),
+        angular_velocity NUMERIC(10,2),
+        distance NUMERIC(10,2),
+        size NUMERIC(10,2),
+        s_name VARCHAR(20),
+        FOREIGN KEY (m_id,t_name) REFERENCES mission_Uses(m_id,t_name)         
+                ON DELETE RESTRICT ON UPDATE CASCADE,        
+        FOREIGN KEY (s_name) REFERENCES  Star(s_name)        
+                ON DELETE RESTRICT ON UPDATE CASCADE,
+        PRIMARY KEY(p_name)
+);
+
+
+
+
+CREATE TABLE Employee (
+        e_no INTEGER,
+        e_name VARCHAR(20),
+        e_type VARCHAR(20),
+        salary NUMERIC(10,2),
+        join_date DATE,
+        end_date DATE,
+        supere_no INTEGER,
+        PRIMARY KEY (e_no),
+        FOREIGN KEY (supere_no) REFERENCES Employee(e_no)         
+                ON DELETE SET DEFAULT ON UPDATE CASCADE
+); 
+
+
+CREATE TABLE Spacecraft (
+        sc_name VARCHAR(20),
+        manufacture_date DATE,
+        status VARCHAR(20),
+        termination_date DATE,
+        payload NUMERIC(10,2),
+        PRIMARY KEY (sc_name)
+);
+
+
+CREATE TABLE SpaceStation (
+        st_no INTEGER,
+        sc_name VARCHAR(20),
+        initial_location VARCHAR(20),
+        capacity NUMERIC(10,2),
+        actual_term_date DATE,
+        expected_term_date DATE,
+        angular_velocity NUMERIC(10,2),
+        PRIMARY KEY (st_no),
+        FOREIGN KEY (sc_name) REFERENCES Spacecraft(sc_name)         
+                ON DELETE SET DEFAULT ON UPDATE CASCADE
+);
+
+
+CREATE TABLE spacestation_country (
+        st_no INTEGER,
+        country_name VARCHAR(20),
+        PRIMARY KEY (st_no,country_name),
+        FOREIGN KEY (st_no) REFERENCES SpaceStation(st_no)         
+                ON DELETE SET DEFAULT ON UPDATE CASCADE
+);
+
+
+CREATE TABLE Astronaut (
+        e_no INTEGER,
+        spacetime NUMERIC(10),
+        st_no INTEGER,
+        PRIMARY KEY (e_no),
+        FOREIGN KEY (e_no) REFERENCES Employee(e_no)         
+                ON DELETE SET DEFAULT ON UPDATE CASCADE,
+        FOREIGN KEY (st_no) REFERENCES SpaceStation(st_no)         
+                ON DELETE SET DEFAULT ON UPDATE CASCADE        
+);
+
+
+CREATE TABLE Launch_site (
+        location VARCHAR(20),
+        site_no INTEGER,
+        country VARCHAR(20),
+        PRIMARY KEY (location,site_no)
+);
+
+
+CREATE TABLE Mission_Consists_of (
+        e_no INTEGER,
+        location VARCHAR(20),
+        site_no INTEGER,
+        m_id VARCHAR(20),
+        sc_name VARCHAR(20),
+        PRIMARY KEY (e_no,location,site_no,m_id,sc_name),
+        FOREIGN KEY (m_id) REFERENCES Mission(m_id)         
+                ON DELETE RESTRICT ON UPDATE CASCADE,
+        FOREIGN KEY (e_no) REFERENCES Employee(e_no)         
+                ON DELETE RESTRICT ON UPDATE CASCADE,
+        FOREIGN KEY (location,site_no) REFERENCES Launch_site(location,site_no)         
+                ON DELETE RESTRICT ON UPDATE CASCADE,
+        FOREIGN KEY (sc_name) REFERENCES Spacecraft(sc_name)         
+                ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+
+
+
+CREATE TABLE Satellite (
+        sat_name VARCHAR(20),
+        type VARCHAR(20),
+        weight NUMERIC(10),
+        initial_location VARCHAR(20),
+        angular_velocity NUMERIC(10,2),
+        launch_time DATE,
+        actual_term_date DATE,
+        expected_term_date DATE,
+        p_name VARCHAR(20),
+        m_id VARCHAR(20),
+        PRIMARY KEY (sat_name),
+        FOREIGN KEY (p_name) REFERENCES Planet(p_name)         
+                ON DELETE SET DEFAULT ON UPDATE CASCADE,
+        FOREIGN KEY (m_id) REFERENCES Mission(m_id)         
+                ON DELETE SET DEFAULT ON UPDATE CASCADE        
+);
+
+
+CREATE TABLE Repairs (
+        sat_name VARCHAR(20),
+        e_no INTEGER,
+        in_date DATE,
+        out_date DATE,
+        PRIMARY KEY (sat_name,e_no),
+        FOREIGN KEY (e_no) REFERENCES Astronaut(e_no)         
+                ON DELETE SET DEFAULT ON UPDATE CASCADE,
+        FOREIGN KEY (sat_name) REFERENCES Satellite(sat_name)         
+                ON DELETE SET DEFAULT ON UPDATE CASCADE);

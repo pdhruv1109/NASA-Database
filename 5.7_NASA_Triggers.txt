@@ -1,0 +1,162 @@
+﻿NASA Database Management Systems
+Group ID :- 5.7
+
+GROUP MEMBERS:
+201501408: Raj Jakasaniya
+201501452: Dhruv Patel 
+201501416: Hasnain Gandhi
+201501177: Naitik Dodia
+
+
+NASA TRIGGER
+
+
+
+1 - > Check whether the planet or star or galaxy (containing the distance attribute) can be discovered by its t_name (i.e. is distance < Range [yes or no] ).
+
+
+Create or replace function dist_check() returns trigger as $BODY$
+Declare
+	x Numeric(10,1);
+Begin
+	if(TG_OP = 'INSERT') THEN
+		Select range into x from telescope as t where new.t_name = t.t_name;
+		if(x < new.distance) THEN
+			Raise Notice 'This telescope cannot discover this planet';
+			return NULL;
+		else 
+			--INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('enzo', 'Kepler', 'Hubble', 36, 166, 5, 14743, 'cason');
+
+			--Insert into planet Select 'I', now() , user, new.*;
+			return NEW;
+		end IF;
+	End if;
+	return null;
+	
+END;
+$BODY$ Language 'plpgsql';
+
+DROP TRIGGER if exists telescope_check on planet;
+Create trigger telescope_check
+Before insert or update on planet 
+For each row execute procedure dist_check();
+
+
+
+INPUT :-
+
+INSERT INTO Planet (p_name, t_name, m_id, initial_location, angular_velocity, distance, size, s_name) VALUES ('enzo1', 'Kepler', 'Hubble', 36, 166, 5, 14743, 'cason');
+
+
+
+
+
+
+2 - > Anything added for employee join_date < end_date ?
+
+
+create or replace function check_date() returns trigger as $BODY$
+DECLARE 
+	x DATE;
+	y DATE;
+BEGIN
+	if(TG_OP = 'INSERT') then
+		x := new.join_date;
+		y := new.end_date;
+		if(x>y) then
+			RAISE NOTICE 'Join date is invalid';
+			return NULL;
+		else	
+			return NEW;
+		end if;
+	end if;
+END;
+$BODY$ language 'plpgsql';
+
+drop trigger if exists employee_datecheck on Employee;
+
+Create trigger employee_datecheck
+Before insert or update on Employee	
+for each row execute procedure check_date(); 
+
+
+
+INPUT :-
+
+INSERT INTO Employee (e_no, e_name, e_type, salary, join_date, end_date, supere_no) VALUES (98, 'mariana123', 'Engineer', 575356, '2012-01-31', '2016-11-28', '15');
+
+
+
+
+
+3 - > Inserting in Mission_consist_of if the employee has greater than 4 employee update the salary.
+
+
+Create or replace function update_empsal() returns trigger as $BODY$
+DECLARE
+	cnt integer;
+BEGIN
+	if(TG_OP = 'INSERT') then
+		Select count(m_id) into cnt as c ,f.e_no from (Select * from Employee as emp Natural Join Mission_Consists_of where emp.e_no=NEW.eno) as f group by f.e_no;
+		if(cnt>=3) then
+			Update Employee as emp1 set salary = salary*1.5 where emp1.e_no = new.e_no;
+			return NEW;
+		end if;
+		--Insert into Mission_Consist_of Select 'I', now() , user, new.*;
+		return new;
+	end if;
+END;
+$BODY$ language 'plpgsql';
+
+drop trigger if exists salary_check on Mission_Consists_of;
+Create trigger salary_check
+before insert or update on Mission_Consists_of 
+for each row execute procedure update_empsal();
+
+
+
+INPUT :-
+
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('4', 'Vandenburg', 114, 'TESS', 'Dragon');
+
+
+
+
+4 - > Insert in astronaut they should not be in two mission at same time
+
+
+Create or replace function check_date_mission()
+returns trigger as $BODY$
+DECLARE
+	m Mission_Consists_of%rowtype;
+	x DATE;
+	y date;
+	z boolean;
+BEGIN
+	z=true;
+	for m in Select * from  (Mission Natural join Mission_Consists_of Natural join astronaut) as m1 where m1.e_no = new.e_no loop
+		if(m.end_date > new.start_date and m.start_date < new.end_date) then
+			RAISE NOTICE 'Astronaut cannot have two missions at same time';
+			z:=false;
+			exit;
+		else
+			continue;
+		end if;
+	end loop; 
+		if(z=true) then
+				return NEW;
+		end  if;
+	
+END;
+$BODY$ Language 'plpgsql';
+
+drop trigger if exists astro_present_mission on Mission_Consists_of
+create trigger astro_present_mission
+before insert or update on Mission_Consists_of 
+for each row execute procedure check_date_mission();
+
+
+
+INPUT :-
+
+INSERT INTO Mission_Consists_of (e_no, location, site_no, m_id, sc_name) VALUES ('2', 'Sabha', 310, 'Huygens', 'Dragon');

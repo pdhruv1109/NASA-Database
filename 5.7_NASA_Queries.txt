@@ -1,0 +1,144 @@
+﻿NASA Database Management Systems
+Group ID :- 5.7
+
+GROUP MEMBERS:
+201501408: Raj Jakasaniya
+201501452: Dhruv Patel 
+201501416: Hasnain Gandhi
+201501177: Naitik Dodia
+
+
+NASA QUERIES
+
+
+1 --->>> List all the satellites whose mission failed with a crash in a particular celestial object.
+
+
+select * from satellite as s join planet as p on s.p_name = p.p_name where  p.p_name = 'earth' and s.actual_term_date < s.expected_term_date;
+		
+
+
+
+2 --->>> Number of satellites revolving around planets present in a specific galaxy
+
+
+
+drop view planetinstar;
+
+drop view staringalaxy;
+
+select * from galaxy as g join star as s on g.g_name = s.g_name;
+
+create or replace view staringalaxy as select s_name,g.m_id,g.g_name from galaxy as g join star as s on g.g_name = s.g_name;
+
+create or replace view planetinstar as select * from staringalaxy as s1 natural join planet as p ;
+
+select * from staringalaxy;
+
+Select * from planetinstar as r3 join satellite as s2 on r3.p_name = s2.p_name where r3.g_name = 'Centaurus';
+
+Select * from (Select * from satellite as s join planet as p on s.p_name = p.p_name where p.p_name = 'earth')  join Employee as e on r1.m_id = s.m_id;
+
+
+
+
+3 --->>> List Employee details who has worked on all missions
+
+
+Select * from (SELECT distinct e_no FROM Mission_Consists_of WHERE e_no not in (SELECT e_no FROM ((SELECT e_no,p.m_id FROM (select m_id from Mission_Consists_of) as p cross join (select distinct m_id from Mission_Consists_of ) as sp) EXCEPT (SELECT e_no, m_id FROM Mission_Consists_of)) AS r))as r1 natural join Employee;
+
+
+
+
+4 --->>> Details of employees who are present in more than 4 employees.
+
+
+Select * from (Select count(m_id) as c ,f.e_no from (Select * from Employee Natural Join Mission_Consists_of) as f group by f.e_no) as tem where tem.c>=4 
+
+
+
+
+
+5 --->>> Details of astronauts who have spacetime greater than 500 hours and have repaired more than 3 satellites and appeared in 3 or more missions.
+
+
+Select * from (Select count(sat_name) as cn,r2.e_no from (Select * from (Select * from (Select count(m.m_id) as c,m.e_no from (Select * from astronaut as a natural join mission_consists_of as mco where a.spacetime>500) as m group by m.e_no) as r1 where r1.c>1) as p natural join repairs) as r2 group by r2.e_no) as tem where tem.cn>1;
+		
+
+
+
+6 --->>> List names of the astronauts who have repaired satellite launched from launch site present in particular country.
+
+
+SELECT distinct e.* FROM employee as e natural join (SELECT re.* FROM repairs as re join (SELECT * FROM satellite as s join (SELECT * FROM mission_consists_of as m join (SELECT * FROM launch_site where country='USA') as r on m.site_no=r.site_no ) as r1 on s.m_id=r1.m_id ) as r2 on re.sat_name=r2.sat_name ) as r3;
+
+
+
+
+7 --->>> List details of astronauts which have repaired satellite which orbit around planet present in galaxy other than milky way?
+
+
+SELECT distinct * FROM employee as e join (SELECT e_no FROM galaxy as g join (SELECT * FROM star as s join (SELECT * FROM planet as p join (SELECT * FROM satellite natural join repairs ) as r1 on p.p_name=r1.p_name ) as r2 on s.s_name=r2.s_name ) as r3 on g.g_name=r3.g_name where g.g_name!='MilkyWay') as r4 on e.e_no=r4.e_no
+	
+
+
+
+8 --->>> List all planets which have satellites around them which has gone through a particular space station?
+
+
+SELECT distinct p.* FROM planet as p join (SELECT * FROM satellite as s join (SELECT * FROM spacestation natural join mission_consists_of ) as r1 on s.m_id=r1.m_id ) as r2 on p.p_name=r2.p_name
+
+
+
+
+9 --->>> Give the percentage of satellites which have actual termination date in the span of one year from expected term date?
+
+
+create or replace view count_less as Select count(sat_name) as total from satellite;
+
+create or replace view count_some as Select count(sat_name) as ans from satellite where (expected_term_date-actual_term_date) < 365;
+
+Select (ans::decimal/total)*100 as percent from count_less,count_some;
+
+
+
+
+10 --->>> List planet which were discovered by ‘infrared telescope’ and have a particular type of satellite revolving around it.
+
+
+
+SELECT distinct s.* FROM satellite as s join (SELECT distinct p.* FROM telescope as t join planet as p on t.t_name=p.t_name where t.type='Infrared' and t.range>=p.distance) as r1 on s.p_name=r1.p_name where s.type='LEO'
+
+
+
+
+11 --->>> List all the planets in each galaxy which are revolving around supergiant star (mass_supergiant star >= 10000)
+
+
+select * from planet as p join star as s on p.s_name=s.s_name where s.size>80000
+
+
+
+
+12 --->>> List count of stars objects which can be see by naked eye (star(luminosity)>1000 or distance(all objects) < 10000)
+
+
+select * from star where luminosity>5000 or distance<1000
+
+
+
+
+13 --->>> List count of supervisors who have supervised failed missions (use space craft status9)
+
+
+select * from ((select distinct e1.e_no from employee as e1 join employee as e2 on e1.e_no=e2.supere_no) as r1 natural join (Select * from mission_consists_of natural join mission) as r2) as tem where tem.status='Crashed';
+
+
+
+
+14 --->>> List name and velocity of all the planets who move with larger speed than earth
+
+
+
+select p_name,angular_velocity from planet as p join (select angular_velocity as ans from planet where p_name='earth') as r1 on r1.ans<p.angular_velocity;
+

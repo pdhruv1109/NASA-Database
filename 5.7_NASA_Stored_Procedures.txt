@@ -1,0 +1,173 @@
+﻿NASA Database Management Systems
+Group ID :- 5.7
+
+GROUP MEMBERS:
+201501408: Raj Jakasaniya
+201501452: Dhruv Patel 
+201501416: Hasnain Gandhi
+201501177: Naitik Dodia
+
+
+NASA STORED PROCEDURES
+
+
+
+
+1 -->> Stored procedure for % salary as function of budget
+
+
+Create or Replace Function Budget(id VARCHAR(20))
+	Returns real as $BODY$
+DECLARE
+	avg_sal real;
+	sum_sal real;
+	sal_percent real;
+	count_emp integer;
+	e Employee%rowtype;
+
+	nmis Mission%rowtype;
+BEGIN
+	--for mis in Select * from Mission LOOP
+	Select * into mis from Mission where m_id = id; 
+		avg_sal := 0.0;
+		sum_sal := 0.0;
+		for e in Select * from (Employee as em join Mission_Consists_of as ms on em.e_no=ms.e_no) as tem join Mission as mi on mi.m_id=tem.m_id where mi.m_id = id LOOP
+			sum_sal := sum_sal + e.salary;
+			count_emp := count_emp +1;
+			--avg_sal := avg_sal+1;
+		END LOOP;
+		avg_sal := sum_sal / count_emp ;
+		sal_percent := ((sum_sal)/(mis.budget*100000))*100;
+		Return sal_percent;--sal_percent;
+	--END LOOP;
+	
+END $BODY$ LANGUAGE 'plpgsql';
+
+
+
+CALL TO THE FUNCTION :-
+
+Select Budget('Hubble');
+
+
+
+
+
+2 -->> Stored procedure on details of employee given year and job type
+
+
+
+Create or Replace Function emp_details(s DATE, e DATE, job Varchar(20))
+	Returns SET of Employee as $BODY$
+DECLARE
+	func Employee;
+	mis Mission%rowtype;
+	emp Employee%rowtype;
+BEGIN:
+	For emp in Select * from Employee LOOP
+		For mis in Select * from Mission where start_date > d and start_date<  and emp.type = job LOOP
+			func.e_no = emp.e_no;
+			func.m_id = emp.m_id;
+			func.e_name = emp.e_name;
+			func.e_type = emp.e_type;
+			func.salary = emp.salary;
+			func.join_date = emp.join_date;
+			func.end_date = emp.end_date;
+			func.supere_no = emp.supere_no;
+		END LOOP;
+		return next func;
+	END LOOP;
+	Return;
+	
+END $BODY$ LANGUAGE 'plpgsql';
+
+
+
+CALL TO THE FUNCTION :-
+
+Select emp_details('01/01/1950','01/01/2000','Astronaut');
+
+
+
+
+
+
+3 -->> Update salaries of employees involved in more than 3 missions
+
+
+Create or Replace Function Update_Salary()
+Returns Integer as $BODY$
+
+DECLARE
+	count_mis Integer;
+	num_experience Integer;
+	e record;
+	
+
+BEGIN
+	for e in Select * from (Select count(m_id) as c ,f.e_no from (Select * from Employee Natural Join Mission_Consists_of) as f group by f.e_no) as tem where tem.c>=4 LOOP
+			Update Employee as emp set salary = salary*1.5 where emp.e_no = e.e_no; 
+ 	END LOOP;
+ 	Return 1;
+ 	
+END $BODY$ language 'plpgsql';
+
+
+
+
+CALL TO THE FUNCTION :-
+
+Select Update_Salary()
+
+
+
+
+
+4 -->> Print the details of the percentage of all the celestial objects discovered by different telescopes
+
+	
+DROP FUNCTION Discovery_ratio();
+
+drop type Percent_telescope_type;
+
+CREATE TYPE Percent_telescope_type as 
+(ty varchar,
+has decimal,
+has1 decimal,
+has2 decimal
+);
+
+Create or Replace Function Discovery_ratio()
+	returns setof Percent_telescope_type as $BODY$
+DECLARE
+	sum_star integer;
+	sum_pl integer;
+	sum_gal integer;
+	telescope_type telescope.type%type;
+	cs integer;
+	x Percent_telescope_type;
+	e Percent_telescope_type;
+BEGIN
+	--for mis in Select * from Mission LOOP
+	Select count(p_name) into sum_pl from planet;
+	Select count(s_name) into sum_star from star;
+	Select count(g_name) into sum_gal from galaxy;
+
+	for e in select * from (Select (count(p_name)::decimal/sum_pl)*100 as has,type from planet as p right join telescope as t on p.t_name = t.t_name group by type) as r1 natural join (Select (count(s_name)::decimal/sum_star)*100 as has1 ,type from star as p right join telescope as t on p.t_name = t.t_name group by type) as r2 natural join (Select (count(p_name)::decimal/sum_pl)*100 as has2,type from planet as p right join telescope as t on p.t_name = t.t_name group by type) as r3 loop
+		--raise notice '%', e.type;
+		return next e;
+	end loop;
+	--for telescope_type in Select t.type from telescope as t loop
+	--	for x in select count(p_name) as cs , type from (telescope natural join planet) as y group by y.type loop
+	--		raise notice x.cs*100/sum_pl;
+	--	end loop
+	--End loop;
+	return ;				
+END $BODY$ LANGUAGE 'plpgsql';
+
+
+
+
+CALL TO THE FUNCTION :-
+
+Select * from Discovery_ratio()
